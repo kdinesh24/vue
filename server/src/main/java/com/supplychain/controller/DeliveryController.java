@@ -2,6 +2,7 @@ package com.supplychain.controller;
 
 import com.supplychain.model.Delivery;
 import com.supplychain.repository.DeliveryRepository;
+import com.supplychain.service.KafkaProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +15,14 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174"})
 public class DeliveryController {
 
+    private final DeliveryRepository deliveryRepository;
+    private final KafkaProducerService kafkaProducerService;
+
     @Autowired
-    private DeliveryRepository deliveryRepository;
+    public DeliveryController(DeliveryRepository deliveryRepository, KafkaProducerService kafkaProducerService) {
+        this.deliveryRepository = deliveryRepository;
+        this.kafkaProducerService = kafkaProducerService;
+    }
 
     @GetMapping
     public List<Delivery> getAllDeliveries() {
@@ -42,7 +49,10 @@ public class DeliveryController {
 
     @PostMapping
     public Delivery createDelivery(@RequestBody Delivery delivery) {
-        return deliveryRepository.save(delivery);
+        Delivery savedDelivery = deliveryRepository.save(delivery);
+        String message = "Delivery created: ID=" + savedDelivery.getDeliveryId() + ", Recipient=" + savedDelivery.getRecipient();
+        kafkaProducerService.sendMessage("delivery-events", message);
+        return savedDelivery;
     }
 
     @GetMapping("/{id}")
@@ -62,6 +72,8 @@ public class DeliveryController {
         delivery.setRecipient(deliveryDetails.getRecipient());
 
         final Delivery updatedDelivery = deliveryRepository.save(delivery);
+        String message = "Delivery updated: ID=" + id + ", Recipient=" + updatedDelivery.getRecipient();
+        kafkaProducerService.sendMessage("delivery-events", message);
         return ResponseEntity.ok(updatedDelivery);
     }
 
@@ -70,6 +82,8 @@ public class DeliveryController {
         Delivery delivery = deliveryRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Delivery not found with id: " + id));
         deliveryRepository.delete(delivery);
+        String message = "Delivery deleted: ID=" + id;
+        kafkaProducerService.sendMessage("delivery-events", message);
         return ResponseEntity.noContent().build();
     }
 }

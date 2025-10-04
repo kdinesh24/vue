@@ -4,7 +4,7 @@ import com.supplychain.model.Shipment;
 import com.supplychain.model.Delivery;
 import com.supplychain.repository.ShipmentRepository;
 import com.supplychain.repository.DeliveryRepository;
-// import com.supplychain.service.KafkaProducerService; // Comment this out
+import com.supplychain.service.KafkaProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +19,15 @@ public class ShipmentController {
 
     private final ShipmentRepository shipmentRepository;
     private final DeliveryRepository deliveryRepository;
-    // private final KafkaProducerService kafkaProducerService; // Comment this out
+    private final KafkaProducerService kafkaProducerService;
 
     @Autowired
-    public ShipmentController(ShipmentRepository shipmentRepository, DeliveryRepository deliveryRepository) {
+    public ShipmentController(ShipmentRepository shipmentRepository, 
+                            DeliveryRepository deliveryRepository,
+                            KafkaProducerService kafkaProducerService) {
         this.shipmentRepository = shipmentRepository;
         this.deliveryRepository = deliveryRepository;
-        // this.kafkaProducerService = kafkaProducerService; // Comment this out
+        this.kafkaProducerService = kafkaProducerService;
     }
 
     @GetMapping
@@ -60,9 +62,11 @@ public class ShipmentController {
             System.out.println("Received shipment: " + shipment);
             Shipment savedShipment = shipmentRepository.save(shipment);
             
-            // Kafka event publishing - commented out for now
-            // String message = "Shipment created with ID: " + savedShipment.getShipmentId();
-            // kafkaProducerService.sendMessage("shipment-events", message);
+            // Publish Kafka event
+            String message = "Shipment created: ID=" + savedShipment.getShipmentId() + 
+                           ", Origin=" + savedShipment.getOrigin() + 
+                           ", Destination=" + savedShipment.getDestination();
+            kafkaProducerService.sendMessage("shipment-events", message);
             
             return ResponseEntity.status(HttpStatus.CREATED).body(savedShipment);
         } catch (Exception e) {
@@ -117,9 +121,9 @@ public class ShipmentController {
                 // Delivery synchronization is handled by the improved DeliveryController.getAllDeliveries() method
                 // which filters deliveries to only show those with "Delivered" status
 
-                // Kafka event publishing - commented out for now
-                // String message = "Shipment " + id + " updated. New status: " + updatedShipment.getStatus();
-                // kafkaProducerService.sendMessage("shipment-events", message);
+                // Publish Kafka event
+                String message = "Shipment updated: ID=" + id + ", Status=" + updatedShipment.getStatus();
+                kafkaProducerService.sendMessage("shipment-events", message);
                 
                 return ResponseEntity.ok(updatedShipment);
             } else {
@@ -139,9 +143,9 @@ public class ShipmentController {
             if (shipment.isPresent()) {
                 shipmentRepository.delete(shipment.get());
 
-                // Kafka event publishing - commented out for now
-                // String message = "Shipment deleted with ID: " + id;
-                // kafkaProducerService.sendMessage("shipment-events", message);
+                // Publish Kafka event
+                String message = "Shipment deleted: ID=" + id;
+                kafkaProducerService.sendMessage("shipment-events", message);
 
                 return ResponseEntity.noContent().build();
             } else {

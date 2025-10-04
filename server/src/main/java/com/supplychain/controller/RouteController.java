@@ -2,6 +2,7 @@ package com.supplychain.controller;
 
 import com.supplychain.model.Route;
 import com.supplychain.repository.RouteRepository;
+import com.supplychain.service.KafkaProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +13,14 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174"})
 public class RouteController {
 
+    private final RouteRepository routeRepository;
+    private final KafkaProducerService kafkaProducerService;
+
     @Autowired
-    private RouteRepository routeRepository;
+    public RouteController(RouteRepository routeRepository, KafkaProducerService kafkaProducerService) {
+        this.routeRepository = routeRepository;
+        this.kafkaProducerService = kafkaProducerService;
+    }
 
     @GetMapping
     public List<Route> getAllRoutes() {
@@ -22,7 +29,10 @@ public class RouteController {
 
     @PostMapping
     public Route createRoute(@RequestBody Route route) {
-        return routeRepository.save(route);
+        Route savedRoute = routeRepository.save(route);
+        String message = "Route created: ID=" + savedRoute.getRouteId() + ", From=" + savedRoute.getOriginPort() + " to " + savedRoute.getDestinationPort();
+        kafkaProducerService.sendMessage("route-events", message);
+        return savedRoute;
     }
     
     @GetMapping("/{id}")
@@ -43,6 +53,8 @@ public class RouteController {
         route.setStatus(routeDetails.getStatus());
 
         final Route updatedRoute = routeRepository.save(route);
+        String message = "Route updated: ID=" + id + ", Status=" + updatedRoute.getStatus();
+        kafkaProducerService.sendMessage("route-events", message);
         return ResponseEntity.ok(updatedRoute);
     }
 
@@ -51,6 +63,8 @@ public class RouteController {
         Route route = routeRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Route not found with id: " + id));
         routeRepository.delete(route);
+        String message = "Route deleted: ID=" + id;
+        kafkaProducerService.sendMessage("route-events", message);
         return ResponseEntity.noContent().build();
     }
 }

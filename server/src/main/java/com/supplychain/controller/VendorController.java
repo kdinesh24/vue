@@ -2,6 +2,7 @@ package com.supplychain.controller;
 
 import com.supplychain.model.Vendor;
 import com.supplychain.repository.VendorRepository;
+import com.supplychain.service.KafkaProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +13,14 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174"})
 public class VendorController {
 
+    private final VendorRepository vendorRepository;
+    private final KafkaProducerService kafkaProducerService;
+
     @Autowired
-    private VendorRepository vendorRepository;
+    public VendorController(VendorRepository vendorRepository, KafkaProducerService kafkaProducerService) {
+        this.vendorRepository = vendorRepository;
+        this.kafkaProducerService = kafkaProducerService;
+    }
 
     @GetMapping
     public List<Vendor> getAllVendors() {
@@ -22,7 +29,10 @@ public class VendorController {
 
     @PostMapping
     public Vendor createVendor(@RequestBody Vendor vendor) {
-        return vendorRepository.save(vendor);
+        Vendor savedVendor = vendorRepository.save(vendor);
+        String message = "Vendor created: ID=" + savedVendor.getVendorId() + ", Name=" + savedVendor.getName();
+        kafkaProducerService.sendMessage("vendor-events", message);
+        return savedVendor;
     }
     
     @GetMapping("/{id}")
@@ -42,6 +52,8 @@ public class VendorController {
         vendor.setServiceType(vendorDetails.getServiceType());
 
         final Vendor updatedVendor = vendorRepository.save(vendor);
+        String message = "Vendor updated: ID=" + id + ", Name=" + updatedVendor.getName();
+        kafkaProducerService.sendMessage("vendor-events", message);
         return ResponseEntity.ok(updatedVendor);
     }
 
@@ -50,6 +62,8 @@ public class VendorController {
         Vendor vendor = vendorRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Vendor not found with id: " + id));
         vendorRepository.delete(vendor);
+        String message = "Vendor deleted: ID=" + id;
+        kafkaProducerService.sendMessage("vendor-events", message);
         return ResponseEntity.noContent().build();
     }
 }
