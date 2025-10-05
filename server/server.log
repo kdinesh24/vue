@@ -8,28 +8,29 @@ nohup: ignoring input
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.5)
 
-2025-10-05T13:23:10.532+05:30  INFO 11428 --- [           main] com.supplychain.SupplyChainApplication   : Starting SupplyChainApplication v0.0.1-SNAPSHOT using Java 17.0.16 with PID 11428 (D:\vue\server\target\supply-chain-system-0.0.1-SNAPSHOT.jar started by LENOVO in D:\vue\server)
-2025-10-05T13:23:10.537+05:30  INFO 11428 --- [           main] com.supplychain.SupplyChainApplication   : No active profile set, falling back to 1 default profile: "default"
-2025-10-05T13:23:11.424+05:30  INFO 11428 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-10-05T13:23:11.481+05:30  INFO 11428 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 5 JPA repository interfaces.
-2025-10-05T13:23:12.112+05:30  INFO 11428 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2025-10-05T13:23:12.128+05:30  INFO 11428 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-10-05T13:23:12.129+05:30  INFO 11428 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2025-10-05T13:23:12.179+05:30  INFO 11428 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-10-05T13:23:12.181+05:30  INFO 11428 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1557 ms
-2025-10-05T13:23:12.406+05:30  INFO 11428 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-10-05T13:23:12.468+05:30  INFO 11428 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2025-10-05T13:23:12.515+05:30  INFO 11428 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-10-05T13:23:12.786+05:30  INFO 11428 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-10-05T13:23:12.819+05:30  INFO 11428 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-10-05T13:23:13.199+05:30  INFO 11428 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4fc6e776
-2025-10-05T13:23:13.201+05:30  INFO 11428 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-10-05T13:23:13.232+05:30  WARN 11428 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-10-05T13:23:14.059+05:30  INFO 11428 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-10-05T13:23:14.178+05:30  INFO 11428 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-10-05T13:23:14.780+05:30  WARN 11428 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-10-05T13:23:15.304+05:30  INFO 11428 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
-2025-10-05T13:23:15.355+05:30  INFO 11428 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+2025-10-05T15:50:39.883+05:30  INFO 29036 --- [           main] com.supplychain.SupplyChainApplication   : Starting SupplyChainApplication v0.0.1-SNAPSHOT using Java 17.0.16 with PID 29036 (D:\vue\server\target\supply-chain-system-0.0.1-SNAPSHOT.jar started by LENOVO in D:\vue\server)
+2025-10-05T15:50:39.887+05:30  INFO 29036 --- [           main] com.supplychain.SupplyChainApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-10-05T15:50:40.764+05:30  INFO 29036 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-05T15:50:40.833+05:30  INFO 29036 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 6 JPA repository interfaces.
+2025-10-05T15:50:41.454+05:30  INFO 29036 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-10-05T15:50:41.470+05:30  INFO 29036 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-05T15:50:41.470+05:30  INFO 29036 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-10-05T15:50:41.512+05:30  INFO 29036 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-05T15:50:41.513+05:30  INFO 29036 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1541 ms
+2025-10-05T15:50:41.702+05:30  INFO 29036 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-05T15:50:41.795+05:30  INFO 29036 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-10-05T15:50:41.831+05:30  INFO 29036 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-05T15:50:42.083+05:30  INFO 29036 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-05T15:50:42.114+05:30  INFO 29036 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-05T15:50:42.328+05:30  INFO 29036 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@561d88ee
+2025-10-05T15:50:42.329+05:30  INFO 29036 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-05T15:50:42.364+05:30  WARN 29036 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-05T15:50:43.201+05:30  INFO 29036 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-05T15:50:43.311+05:30  INFO 29036 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:50:44.081+05:30  WARN 29036 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-05T15:50:44.596+05:30  INFO 29036 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e9947af, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d60aa4, org.springframework.security.web.context.SecurityContextHolderFilter@63767d, org.springframework.security.web.header.HeaderWriterFilter@5f3bc119, org.springframework.web.filter.CorsFilter@30942f54, org.springframework.security.web.authentication.logout.LogoutFilter@24347d8b, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@4e773b8a, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@490f2fad, org.springframework.security.web.session.ConcurrentSessionFilter@66e44f9f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c90fc3b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1e14ed59, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@11d557a5, org.springframework.security.web.session.SessionManagementFilter@765d67dd, org.springframework.security.web.access.ExceptionTranslationFilter@2cc82c83, org.springframework.security.web.access.intercept.AuthorizationFilter@34128fed]
+2025-10-05T15:50:44.915+05:30  INFO 29036 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2025-10-05T15:50:44.947+05:30  INFO 29036 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -123,11 +124,11 @@ nohup: ignoring input
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2025-10-05T13:23:15.451+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
-2025-10-05T13:23:15.451+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
-2025-10-05T13:23:15.451+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759650795450
-2025-10-05T13:23:15.453+05:30  INFO 11428 --- [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Subscribed to topic(s): vendor-events
-2025-10-05T13:23:15.458+05:30  INFO 11428 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+2025-10-05T15:50:45.059+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
+2025-10-05T15:50:45.059+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
+2025-10-05T15:50:45.059+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759659645058
+2025-10-05T15:50:45.060+05:30  INFO 29036 --- [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Subscribed to topic(s): shipment-events
+2025-10-05T15:50:45.066+05:30  INFO 29036 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -221,11 +222,11 @@ nohup: ignoring input
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2025-10-05T13:23:15.463+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
-2025-10-05T13:23:15.463+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
-2025-10-05T13:23:15.463+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759650795463
-2025-10-05T13:23:15.463+05:30  INFO 11428 --- [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Subscribed to topic(s): shipment-events
-2025-10-05T13:23:15.465+05:30  INFO 11428 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+2025-10-05T15:50:45.072+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
+2025-10-05T15:50:45.072+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
+2025-10-05T15:50:45.072+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759659645072
+2025-10-05T15:50:45.072+05:30  INFO 29036 --- [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Subscribed to topic(s): cargo-events
+2025-10-05T15:50:45.073+05:30  INFO 29036 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -319,11 +320,11 @@ nohup: ignoring input
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2025-10-05T13:23:15.469+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
-2025-10-05T13:23:15.471+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
-2025-10-05T13:23:15.471+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759650795469
-2025-10-05T13:23:15.471+05:30  INFO 11428 --- [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Subscribed to topic(s): delivery-events
-2025-10-05T13:23:15.472+05:30  INFO 11428 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+2025-10-05T15:50:45.077+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
+2025-10-05T15:50:45.077+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
+2025-10-05T15:50:45.077+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759659645077
+2025-10-05T15:50:45.077+05:30  INFO 29036 --- [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Subscribed to topic(s): route-events
+2025-10-05T15:50:45.078+05:30  INFO 29036 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -417,11 +418,11 @@ nohup: ignoring input
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2025-10-05T13:23:15.475+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
-2025-10-05T13:23:15.475+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
-2025-10-05T13:23:15.476+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759650795475
-2025-10-05T13:23:15.476+05:30  INFO 11428 --- [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Subscribed to topic(s): cargo-events
-2025-10-05T13:23:15.477+05:30  INFO 11428 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+2025-10-05T15:50:45.081+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
+2025-10-05T15:50:45.081+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
+2025-10-05T15:50:45.081+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759659645081
+2025-10-05T15:50:45.081+05:30  INFO 29036 --- [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Subscribed to topic(s): vendor-events
+2025-10-05T15:50:45.082+05:30  INFO 29036 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -515,191 +516,115 @@ nohup: ignoring input
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2025-10-05T13:23:15.480+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
-2025-10-05T13:23:15.480+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
-2025-10-05T13:23:15.480+05:30  INFO 11428 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759650795480
-2025-10-05T13:23:15.480+05:30  INFO 11428 --- [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Subscribed to topic(s): route-events
-2025-10-05T13:23:15.482+05:30  INFO 11428 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
-2025-10-05T13:23:15.485+05:30  INFO 11428 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@240fa4ad]]
-2025-10-05T13:23:15.486+05:30  INFO 11428 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
-2025-10-05T13:23:15.503+05:30  INFO 11428 --- [           main] com.supplychain.SupplyChainApplication   : Started SupplyChainApplication in 5.384 seconds (process running for 5.866)
-2025-10-05T13:23:15.627+05:30  INFO 11428 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-10-05T13:23:15.628+05:30  INFO 11428 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-10-05T13:23:15.631+05:30  INFO 11428 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2025-10-05T13:23:16.043+05:30  INFO 11428 --- [ntainer#2-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Cluster ID: XefKWn9YTzGZ7ro6pEc56g
-2025-10-05T13:23:16.043+05:30  INFO 11428 --- [ntainer#1-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Cluster ID: XefKWn9YTzGZ7ro6pEc56g
-2025-10-05T13:23:16.043+05:30  INFO 11428 --- [ntainer#4-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Cluster ID: XefKWn9YTzGZ7ro6pEc56g
-2025-10-05T13:23:16.043+05:30  INFO 11428 --- [ntainer#3-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Cluster ID: XefKWn9YTzGZ7ro6pEc56g
-2025-10-05T13:23:16.043+05:30  INFO 11428 --- [ntainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Cluster ID: XefKWn9YTzGZ7ro6pEc56g
-2025-10-05T13:23:16.046+05:30  INFO 11428 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2025-10-05T13:23:16.046+05:30  INFO 11428 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2025-10-05T13:23:16.046+05:30  INFO 11428 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2025-10-05T13:23:16.046+05:30  INFO 11428 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2025-10-05T13:23:16.046+05:30  INFO 11428 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2025-10-05T13:23:16.048+05:30  INFO 11428 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] (Re-)joining group
-2025-10-05T13:23:16.048+05:30  INFO 11428 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] (Re-)joining group
-2025-10-05T13:23:16.048+05:30  INFO 11428 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] (Re-)joining group
-2025-10-05T13:23:16.048+05:30  INFO 11428 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] (Re-)joining group
-2025-10-05T13:23:16.048+05:30  INFO 11428 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] (Re-)joining group
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Request joining group due to: need to re-join with the given member-id: consumer-supply-chain-group-4-d4f7ecbf-ffd0-44b1-91c9-914961c5b993
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Request joining group due to: need to re-join with the given member-id: consumer-supply-chain-group-3-b26ab524-0c16-479d-b89c-eb47520a95d9
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Request joining group due to: need to re-join with the given member-id: consumer-supply-chain-group-5-0e10cb14-21eb-40b7-b101-31b06df70161
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Request joining group due to: need to re-join with the given member-id: consumer-supply-chain-group-1-20446d0b-10b5-454c-ac4d-dd4dd2c08c6c
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Request joining group due to: need to re-join with the given member-id: consumer-supply-chain-group-2-5f892052-5533-4bcd-ba30-74454892c64b
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] (Re-)joining group
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] (Re-)joining group
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] (Re-)joining group
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] (Re-)joining group
-2025-10-05T13:23:16.065+05:30  INFO 11428 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] (Re-)joining group
-2025-10-05T13:23:16.068+05:30  INFO 11428 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Successfully joined group with generation Generation{generationId=39, memberId='consumer-supply-chain-group-5-0e10cb14-21eb-40b7-b101-31b06df70161', protocol='range'}
-2025-10-05T13:23:16.068+05:30  INFO 11428 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Successfully joined group with generation Generation{generationId=39, memberId='consumer-supply-chain-group-3-b26ab524-0c16-479d-b89c-eb47520a95d9', protocol='range'}
-2025-10-05T13:23:16.068+05:30  INFO 11428 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Successfully joined group with generation Generation{generationId=39, memberId='consumer-supply-chain-group-1-20446d0b-10b5-454c-ac4d-dd4dd2c08c6c', protocol='range'}
-2025-10-05T13:23:16.068+05:30  INFO 11428 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Successfully joined group with generation Generation{generationId=39, memberId='consumer-supply-chain-group-4-d4f7ecbf-ffd0-44b1-91c9-914961c5b993', protocol='range'}
-2025-10-05T13:23:16.068+05:30  INFO 11428 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Successfully joined group with generation Generation{generationId=39, memberId='consumer-supply-chain-group-2-5f892052-5533-4bcd-ba30-74454892c64b', protocol='range'}
-2025-10-05T13:23:16.076+05:30  INFO 11428 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Finished assignment for group at generation 39: {consumer-supply-chain-group-3-b26ab524-0c16-479d-b89c-eb47520a95d9=Assignment(partitions=[delivery-events-0]), consumer-supply-chain-group-1-20446d0b-10b5-454c-ac4d-dd4dd2c08c6c=Assignment(partitions=[vendor-events-0]), consumer-supply-chain-group-2-5f892052-5533-4bcd-ba30-74454892c64b=Assignment(partitions=[shipment-events-0]), consumer-supply-chain-group-4-d4f7ecbf-ffd0-44b1-91c9-914961c5b993=Assignment(partitions=[cargo-events-0]), consumer-supply-chain-group-5-0e10cb14-21eb-40b7-b101-31b06df70161=Assignment(partitions=[route-events-0])}
-2025-10-05T13:23:16.100+05:30  INFO 11428 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Successfully synced group in generation Generation{generationId=39, memberId='consumer-supply-chain-group-3-b26ab524-0c16-479d-b89c-eb47520a95d9', protocol='range'}
-2025-10-05T13:23:16.100+05:30  INFO 11428 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Successfully synced group in generation Generation{generationId=39, memberId='consumer-supply-chain-group-1-20446d0b-10b5-454c-ac4d-dd4dd2c08c6c', protocol='range'}
-2025-10-05T13:23:16.100+05:30  INFO 11428 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Successfully synced group in generation Generation{generationId=39, memberId='consumer-supply-chain-group-5-0e10cb14-21eb-40b7-b101-31b06df70161', protocol='range'}
-2025-10-05T13:23:16.100+05:30  INFO 11428 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Successfully synced group in generation Generation{generationId=39, memberId='consumer-supply-chain-group-2-5f892052-5533-4bcd-ba30-74454892c64b', protocol='range'}
-2025-10-05T13:23:16.100+05:30  INFO 11428 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Successfully synced group in generation Generation{generationId=39, memberId='consumer-supply-chain-group-4-d4f7ecbf-ffd0-44b1-91c9-914961c5b993', protocol='range'}
-2025-10-05T13:23:16.100+05:30  INFO 11428 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Notifying assignor about the new Assignment(partitions=[vendor-events-0])
-2025-10-05T13:23:16.100+05:30  INFO 11428 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Notifying assignor about the new Assignment(partitions=[cargo-events-0])
-2025-10-05T13:23:16.100+05:30  INFO 11428 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Notifying assignor about the new Assignment(partitions=[route-events-0])
-2025-10-05T13:23:16.100+05:30  INFO 11428 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Notifying assignor about the new Assignment(partitions=[shipment-events-0])
-2025-10-05T13:23:16.100+05:30  INFO 11428 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Notifying assignor about the new Assignment(partitions=[delivery-events-0])
-2025-10-05T13:23:16.102+05:30  INFO 11428 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Adding newly assigned partitions: vendor-events-0
-2025-10-05T13:23:16.102+05:30  INFO 11428 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Adding newly assigned partitions: cargo-events-0
-2025-10-05T13:23:16.102+05:30  INFO 11428 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Adding newly assigned partitions: route-events-0
-2025-10-05T13:23:16.102+05:30  INFO 11428 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Adding newly assigned partitions: delivery-events-0
-2025-10-05T13:23:16.102+05:30  INFO 11428 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Adding newly assigned partitions: shipment-events-0
-2025-10-05T13:23:16.111+05:30  INFO 11428 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Found no committed offset for partition delivery-events-0
-2025-10-05T13:23:16.114+05:30  INFO 11428 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Setting offset for partition cargo-events-0 to the committed offset FetchPosition{offset=12, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=8}}
-2025-10-05T13:23:16.114+05:30  INFO 11428 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Setting offset for partition shipment-events-0 to the committed offset FetchPosition{offset=4, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=8}}
-2025-10-05T13:23:16.114+05:30  INFO 11428 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Setting offset for partition vendor-events-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=8}}
-2025-10-05T13:23:16.114+05:30  INFO 11428 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Setting offset for partition route-events-0 to the committed offset FetchPosition{offset=3, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=8}}
-2025-10-05T13:23:16.115+05:30  INFO 11428 --- [ntainer#3-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : supply-chain-group: partitions assigned: [shipment-events-0]
-2025-10-05T13:23:16.115+05:30  INFO 11428 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : supply-chain-group: partitions assigned: [cargo-events-0]
-2025-10-05T13:23:16.115+05:30  INFO 11428 --- [ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : supply-chain-group: partitions assigned: [route-events-0]
-2025-10-05T13:23:16.115+05:30  INFO 11428 --- [ntainer#2-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : supply-chain-group: partitions assigned: [vendor-events-0]
-2025-10-05T13:23:16.119+05:30  INFO 11428 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Resetting offset for partition delivery-events-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=8}}.
-2025-10-05T13:23:16.119+05:30  INFO 11428 --- [ntainer#4-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : supply-chain-group: partitions assigned: [delivery-events-0]
-Hibernate: select count(*) from shipment s1_0 where s1_0.shipment_id=?
+2025-10-05T15:50:45.086+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
+2025-10-05T15:50:45.086+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
+2025-10-05T15:50:45.086+05:30  INFO 29036 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759659645086
+2025-10-05T15:50:45.086+05:30  INFO 29036 --- [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Subscribed to topic(s): delivery-events
+2025-10-05T15:50:45.088+05:30  INFO 29036 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-10-05T15:50:45.091+05:30  INFO 29036 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5014ccf9]]
+2025-10-05T15:50:45.091+05:30  INFO 29036 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-10-05T15:50:45.106+05:30  INFO 29036 --- [           main] com.supplychain.SupplyChainApplication   : Started SupplyChainApplication in 5.645 seconds (process running for 6.139)
+2025-10-05T15:50:45.502+05:30  INFO 29036 --- [ntainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Cluster ID: XefKWn9YTzGZ7ro6pEc56g
+2025-10-05T15:50:45.502+05:30  INFO 29036 --- [ntainer#1-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Cluster ID: XefKWn9YTzGZ7ro6pEc56g
+2025-10-05T15:50:45.502+05:30  INFO 29036 --- [ntainer#4-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Cluster ID: XefKWn9YTzGZ7ro6pEc56g
+2025-10-05T15:50:45.502+05:30  INFO 29036 --- [ntainer#2-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Cluster ID: XefKWn9YTzGZ7ro6pEc56g
+2025-10-05T15:50:45.502+05:30  INFO 29036 --- [ntainer#3-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Cluster ID: XefKWn9YTzGZ7ro6pEc56g
+2025-10-05T15:50:45.504+05:30  INFO 29036 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-10-05T15:50:45.504+05:30  INFO 29036 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-10-05T15:50:45.504+05:30  INFO 29036 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-10-05T15:50:45.504+05:30  INFO 29036 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-10-05T15:50:45.504+05:30  INFO 29036 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-10-05T15:50:45.506+05:30  INFO 29036 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] (Re-)joining group
+2025-10-05T15:50:45.506+05:30  INFO 29036 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] (Re-)joining group
+2025-10-05T15:50:45.506+05:30  INFO 29036 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] (Re-)joining group
+2025-10-05T15:50:45.506+05:30  INFO 29036 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] (Re-)joining group
+2025-10-05T15:50:45.506+05:30  INFO 29036 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] (Re-)joining group
+2025-10-05T15:50:45.520+05:30  INFO 29036 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Request joining group due to: need to re-join with the given member-id: consumer-supply-chain-group-3-d2c63c66-de77-481a-ba2d-ba14cdc5f8c1
+2025-10-05T15:50:45.520+05:30  INFO 29036 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-10-05T15:50:45.520+05:30  INFO 29036 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] (Re-)joining group
+2025-10-05T15:50:45.521+05:30  INFO 29036 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Request joining group due to: need to re-join with the given member-id: consumer-supply-chain-group-1-851f20c1-ddfc-4615-bd88-1542306b3373
+2025-10-05T15:50:45.521+05:30  INFO 29036 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Request joining group due to: need to re-join with the given member-id: consumer-supply-chain-group-5-4fbf6e8a-2c98-4659-b371-f43170bbab53
+2025-10-05T15:50:45.521+05:30  INFO 29036 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-10-05T15:50:45.521+05:30  INFO 29036 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-10-05T15:50:45.521+05:30  INFO 29036 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] (Re-)joining group
+2025-10-05T15:50:45.521+05:30  INFO 29036 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] (Re-)joining group
+2025-10-05T15:50:45.521+05:30  INFO 29036 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Request joining group due to: need to re-join with the given member-id: consumer-supply-chain-group-4-89656600-6024-49d2-8266-26aafeacb6c6
+2025-10-05T15:50:45.521+05:30  INFO 29036 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Request joining group due to: need to re-join with the given member-id: consumer-supply-chain-group-2-476915a8-a075-4808-861a-784974814544
+2025-10-05T15:50:45.521+05:30  INFO 29036 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-10-05T15:50:45.521+05:30  INFO 29036 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-10-05T15:50:45.521+05:30  INFO 29036 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] (Re-)joining group
+2025-10-05T15:50:45.521+05:30  INFO 29036 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] (Re-)joining group
+2025-10-05T15:50:45.523+05:30  INFO 29036 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Successfully joined group with generation Generation{generationId=52, memberId='consumer-supply-chain-group-2-476915a8-a075-4808-861a-784974814544', protocol='range'}
+2025-10-05T15:50:45.523+05:30  INFO 29036 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Successfully joined group with generation Generation{generationId=52, memberId='consumer-supply-chain-group-1-851f20c1-ddfc-4615-bd88-1542306b3373', protocol='range'}
+2025-10-05T15:50:45.523+05:30  INFO 29036 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Successfully joined group with generation Generation{generationId=52, memberId='consumer-supply-chain-group-4-89656600-6024-49d2-8266-26aafeacb6c6', protocol='range'}
+2025-10-05T15:50:45.523+05:30  INFO 29036 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Successfully joined group with generation Generation{generationId=52, memberId='consumer-supply-chain-group-5-4fbf6e8a-2c98-4659-b371-f43170bbab53', protocol='range'}
+2025-10-05T15:50:45.523+05:30  INFO 29036 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Successfully joined group with generation Generation{generationId=52, memberId='consumer-supply-chain-group-3-d2c63c66-de77-481a-ba2d-ba14cdc5f8c1', protocol='range'}
+2025-10-05T15:50:45.529+05:30  INFO 29036 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Finished assignment for group at generation 52: {consumer-supply-chain-group-3-d2c63c66-de77-481a-ba2d-ba14cdc5f8c1=Assignment(partitions=[route-events-0]), consumer-supply-chain-group-4-89656600-6024-49d2-8266-26aafeacb6c6=Assignment(partitions=[vendor-events-0]), consumer-supply-chain-group-2-476915a8-a075-4808-861a-784974814544=Assignment(partitions=[cargo-events-0]), consumer-supply-chain-group-5-4fbf6e8a-2c98-4659-b371-f43170bbab53=Assignment(partitions=[delivery-events-0]), consumer-supply-chain-group-1-851f20c1-ddfc-4615-bd88-1542306b3373=Assignment(partitions=[shipment-events-0])}
+2025-10-05T15:50:45.546+05:30  INFO 29036 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Successfully synced group in generation Generation{generationId=52, memberId='consumer-supply-chain-group-5-4fbf6e8a-2c98-4659-b371-f43170bbab53', protocol='range'}
+2025-10-05T15:50:45.546+05:30  INFO 29036 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Successfully synced group in generation Generation{generationId=52, memberId='consumer-supply-chain-group-4-89656600-6024-49d2-8266-26aafeacb6c6', protocol='range'}
+2025-10-05T15:50:45.546+05:30  INFO 29036 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Successfully synced group in generation Generation{generationId=52, memberId='consumer-supply-chain-group-3-d2c63c66-de77-481a-ba2d-ba14cdc5f8c1', protocol='range'}
+2025-10-05T15:50:45.546+05:30  INFO 29036 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Successfully synced group in generation Generation{generationId=52, memberId='consumer-supply-chain-group-1-851f20c1-ddfc-4615-bd88-1542306b3373', protocol='range'}
+2025-10-05T15:50:45.546+05:30  INFO 29036 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Successfully synced group in generation Generation{generationId=52, memberId='consumer-supply-chain-group-2-476915a8-a075-4808-861a-784974814544', protocol='range'}
+2025-10-05T15:50:45.546+05:30  INFO 29036 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Notifying assignor about the new Assignment(partitions=[shipment-events-0])
+2025-10-05T15:50:45.546+05:30  INFO 29036 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Notifying assignor about the new Assignment(partitions=[route-events-0])
+2025-10-05T15:50:45.546+05:30  INFO 29036 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Notifying assignor about the new Assignment(partitions=[cargo-events-0])
+2025-10-05T15:50:45.546+05:30  INFO 29036 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Notifying assignor about the new Assignment(partitions=[vendor-events-0])
+2025-10-05T15:50:45.546+05:30  INFO 29036 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Notifying assignor about the new Assignment(partitions=[delivery-events-0])
+2025-10-05T15:50:45.548+05:30  INFO 29036 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Adding newly assigned partitions: shipment-events-0
+2025-10-05T15:50:45.549+05:30  INFO 29036 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Adding newly assigned partitions: vendor-events-0
+2025-10-05T15:50:45.549+05:30  INFO 29036 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Adding newly assigned partitions: delivery-events-0
+2025-10-05T15:50:45.549+05:30  INFO 29036 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Adding newly assigned partitions: cargo-events-0
+2025-10-05T15:50:45.548+05:30  INFO 29036 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Adding newly assigned partitions: route-events-0
+2025-10-05T15:50:45.555+05:30  INFO 29036 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Found no committed offset for partition delivery-events-0
+2025-10-05T15:50:45.559+05:30  INFO 29036 --- [ntainer#2-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-1, groupId=supply-chain-group] Setting offset for partition shipment-events-0 to the committed offset FetchPosition{offset=7, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=12}}
+2025-10-05T15:50:45.559+05:30  INFO 29036 --- [ntainer#3-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-2, groupId=supply-chain-group] Setting offset for partition cargo-events-0 to the committed offset FetchPosition{offset=12, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=12}}
+2025-10-05T15:50:45.559+05:30  INFO 29036 --- [ntainer#4-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-3, groupId=supply-chain-group] Setting offset for partition route-events-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=12}}
+2025-10-05T15:50:45.559+05:30  INFO 29036 --- [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-supply-chain-group-4, groupId=supply-chain-group] Setting offset for partition vendor-events-0 to the committed offset FetchPosition{offset=7, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=12}}
+2025-10-05T15:50:45.560+05:30  INFO 29036 --- [ntainer#2-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : supply-chain-group: partitions assigned: [shipment-events-0]
+2025-10-05T15:50:45.560+05:30  INFO 29036 --- [ntainer#4-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : supply-chain-group: partitions assigned: [route-events-0]
+2025-10-05T15:50:45.560+05:30  INFO 29036 --- [ntainer#3-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : supply-chain-group: partitions assigned: [cargo-events-0]
+2025-10-05T15:50:45.560+05:30  INFO 29036 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : supply-chain-group: partitions assigned: [vendor-events-0]
+2025-10-05T15:50:45.569+05:30  INFO 29036 --- [ntainer#1-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-supply-chain-group-5, groupId=supply-chain-group] Resetting offset for partition delivery-events-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=12}}.
+2025-10-05T15:50:45.569+05:30  INFO 29036 --- [ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : supply-chain-group: partitions assigned: [delivery-events-0]
+2025-10-05T15:51:44.887+05:30  INFO 29036 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-10-05T15:53:34.565+05:30  INFO 29036 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-05T15:53:34.565+05:30  INFO 29036 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-05T15:53:34.566+05:30  INFO 29036 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.picture,u1_0.provider,u1_0.provider_id,u1_0.role,u1_0.updated_at from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.picture,u1_0.provider,u1_0.provider_id,u1_0.role,u1_0.updated_at from users u1_0 where u1_0.email=?
+Hibernate: select r1_0.route_id,r1_0.cost,r1_0.created_at,r1_0.destination_port,r1_0.distance,r1_0.duration,r1_0.origin_port,r1_0.status,r1_0.transportation_mode from route r1_0
+Hibernate: select v1_0.vendor_id,v1_0.contact_info,v1_0.created_at,v1_0.is_active,v1_0.name,v1_0.service_type from vendor v1_0
+Hibernate: select d1_0.delivery_id,d1_0.actual_delivery_date,d1_0.created_at,d1_0.recipient,d1_0.shipment_id,d1_0.status from deliveries d1_0
+Hibernate: select c1_0.cargo_id,c1_0.created_at,c1_0.description,c1_0.shipment_id,c1_0.type,c1_0.value,c1_0.volume,c1_0.weight,c1_0.weight_unit from cargo c1_0
+Hibernate: select s1_0.shipment_id,s1_0.route_id,s1_0.vendor_id,s1_0.created_at,s1_0.destination,s1_0.estimated_delivery,s1_0.origin,s1_0.shipment_code,s1_0.status,s1_0.updated_at from shipment s1_0
+Hibernate: select s1_0.shipment_id,ar1_0.route_id,ar1_0.cost,ar1_0.created_at,ar1_0.destination_port,ar1_0.distance,ar1_0.duration,ar1_0.origin_port,ar1_0.status,ar1_0.transportation_mode,av1_0.vendor_id,av1_0.contact_info,av1_0.created_at,av1_0.is_active,av1_0.name,av1_0.service_type,s1_0.created_at,s1_0.destination,s1_0.estimated_delivery,s1_0.origin,s1_0.shipment_code,s1_0.status,s1_0.updated_at from shipment s1_0 left join route ar1_0 on ar1_0.route_id=s1_0.route_id left join vendor av1_0 on av1_0.vendor_id=s1_0.vendor_id where s1_0.shipment_id=?
+Hibernate: select s1_0.shipment_id,ar1_0.route_id,ar1_0.cost,ar1_0.created_at,ar1_0.destination_port,ar1_0.distance,ar1_0.duration,ar1_0.origin_port,ar1_0.status,ar1_0.transportation_mode,av1_0.vendor_id,av1_0.contact_info,av1_0.created_at,av1_0.is_active,av1_0.name,av1_0.service_type,s1_0.created_at,s1_0.destination,s1_0.estimated_delivery,s1_0.origin,s1_0.shipment_code,s1_0.status,s1_0.updated_at from shipment s1_0 left join route ar1_0 on ar1_0.route_id=s1_0.route_id left join vendor av1_0 on av1_0.vendor_id=s1_0.vendor_id where s1_0.shipment_id=?
+Hibernate: select r1_0.route_id,r1_0.cost,r1_0.created_at,r1_0.destination_port,r1_0.distance,r1_0.duration,r1_0.origin_port,r1_0.status,r1_0.transportation_mode from route r1_0 where r1_0.route_id=?
+Hibernate: select v1_0.vendor_id,v1_0.contact_info,v1_0.created_at,v1_0.is_active,v1_0.name,v1_0.service_type from vendor v1_0 where v1_0.vendor_id=?
+Hibernate: select c1_0.cargo_id,c1_0.created_at,c1_0.description,c1_0.shipment_id,c1_0.type,c1_0.value,c1_0.volume,c1_0.weight,c1_0.weight_unit from cargo c1_0
+Hibernate: select v1_0.vendor_id,v1_0.contact_info,v1_0.created_at,v1_0.is_active,v1_0.name,v1_0.service_type from vendor v1_0
+Hibernate: select s1_0.shipment_id,s1_0.route_id,s1_0.vendor_id,s1_0.created_at,s1_0.destination,s1_0.estimated_delivery,s1_0.origin,s1_0.shipment_code,s1_0.status,s1_0.updated_at from shipment s1_0
+Hibernate: select r1_0.route_id,r1_0.cost,r1_0.created_at,r1_0.destination_port,r1_0.distance,r1_0.duration,r1_0.origin_port,r1_0.status,r1_0.transportation_mode from route r1_0
+Hibernate: select s1_0.shipment_id,ar1_0.route_id,ar1_0.cost,ar1_0.created_at,ar1_0.destination_port,ar1_0.distance,ar1_0.duration,ar1_0.origin_port,ar1_0.status,ar1_0.transportation_mode,av1_0.vendor_id,av1_0.contact_info,av1_0.created_at,av1_0.is_active,av1_0.name,av1_0.service_type,s1_0.created_at,s1_0.destination,s1_0.estimated_delivery,s1_0.origin,s1_0.shipment_code,s1_0.status,s1_0.updated_at from shipment s1_0 left join route ar1_0 on ar1_0.route_id=s1_0.route_id left join vendor av1_0 on av1_0.vendor_id=s1_0.vendor_id where s1_0.shipment_id=?
+Hibernate: select r1_0.route_id,r1_0.cost,r1_0.created_at,r1_0.destination_port,r1_0.distance,r1_0.duration,r1_0.origin_port,r1_0.status,r1_0.transportation_mode from route r1_0 where r1_0.route_id=?
+Hibernate: select v1_0.vendor_id,v1_0.contact_info,v1_0.created_at,v1_0.is_active,v1_0.name,v1_0.service_type from vendor v1_0 where v1_0.vendor_id=?
 Hibernate: select d1_0.delivery_id,d1_0.actual_delivery_date,d1_0.created_at,d1_0.recipient,d1_0.shipment_id,d1_0.status from deliveries d1_0
 Hibernate: select s1_0.shipment_id,ar1_0.route_id,ar1_0.cost,ar1_0.created_at,ar1_0.destination_port,ar1_0.distance,ar1_0.duration,ar1_0.origin_port,ar1_0.status,ar1_0.transportation_mode,av1_0.vendor_id,av1_0.contact_info,av1_0.created_at,av1_0.is_active,av1_0.name,av1_0.service_type,s1_0.created_at,s1_0.destination,s1_0.estimated_delivery,s1_0.origin,s1_0.shipment_code,s1_0.status,s1_0.updated_at from shipment s1_0 left join route ar1_0 on ar1_0.route_id=s1_0.route_id left join vendor av1_0 on av1_0.vendor_id=s1_0.vendor_id where s1_0.shipment_id=?
+Hibernate: select v1_0.vendor_id,v1_0.contact_info,v1_0.created_at,v1_0.is_active,v1_0.name,v1_0.service_type from vendor v1_0
+Hibernate: select s1_0.shipment_id,s1_0.route_id,s1_0.vendor_id,s1_0.created_at,s1_0.destination,s1_0.estimated_delivery,s1_0.origin,s1_0.shipment_code,s1_0.status,s1_0.updated_at from shipment s1_0
+Hibernate: select r1_0.route_id,r1_0.cost,r1_0.created_at,r1_0.destination_port,r1_0.distance,r1_0.duration,r1_0.origin_port,r1_0.status,r1_0.transportation_mode from route r1_0
+Hibernate: select c1_0.cargo_id,c1_0.created_at,c1_0.description,c1_0.shipment_id,c1_0.type,c1_0.value,c1_0.volume,c1_0.weight,c1_0.weight_unit from cargo c1_0
+Hibernate: select d1_0.delivery_id,d1_0.actual_delivery_date,d1_0.created_at,d1_0.recipient,d1_0.shipment_id,d1_0.status from deliveries d1_0
+Hibernate: select r1_0.route_id,r1_0.cost,r1_0.created_at,r1_0.destination_port,r1_0.distance,r1_0.duration,r1_0.origin_port,r1_0.status,r1_0.transportation_mode from route r1_0 where r1_0.route_id=?
 Hibernate: select s1_0.shipment_id,ar1_0.route_id,ar1_0.cost,ar1_0.created_at,ar1_0.destination_port,ar1_0.distance,ar1_0.duration,ar1_0.origin_port,ar1_0.status,ar1_0.transportation_mode,av1_0.vendor_id,av1_0.contact_info,av1_0.created_at,av1_0.is_active,av1_0.name,av1_0.service_type,s1_0.created_at,s1_0.destination,s1_0.estimated_delivery,s1_0.origin,s1_0.shipment_code,s1_0.status,s1_0.updated_at from shipment s1_0 left join route ar1_0 on ar1_0.route_id=s1_0.route_id left join vendor av1_0 on av1_0.vendor_id=s1_0.vendor_id where s1_0.shipment_id=?
-Hibernate: delete from deliveries where delivery_id=?
-Deleted 1 associated delivery records
-Hibernate: select ci1_0.shipment_id,ci1_0.cargo_id,ci1_0.created_at,ci1_0.description,ci1_0.type,ci1_0.value,ci1_0.volume,ci1_0.weight,ci1_0.weight_unit from cargo ci1_0 where ci1_0.shipment_id=?
-Hibernate: delete from cargo where cargo_id=?
-Hibernate: delete from shipment where shipment_id=?
-Producing message -> Shipment deleted: ID=10 to topic -> shipment-events
-2025-10-05T13:23:45.648+05:30  INFO 11428 --- [nio-8081-exec-4] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
-	acks = -1
-	auto.include.jmx.reporter = true
-	batch.size = 16384
-	bootstrap.servers = [localhost:9092]
-	buffer.memory = 33554432
-	client.dns.lookup = use_all_dns_ips
-	client.id = producer-1
-	compression.type = none
-	connections.max.idle.ms = 540000
-	delivery.timeout.ms = 120000
-	enable.idempotence = true
-	interceptor.classes = []
-	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
-	linger.ms = 0
-	max.block.ms = 60000
-	max.in.flight.requests.per.connection = 5
-	max.request.size = 1048576
-	metadata.max.age.ms = 300000
-	metadata.max.idle.ms = 300000
-	metric.reporters = []
-	metrics.num.samples = 2
-	metrics.recording.level = INFO
-	metrics.sample.window.ms = 30000
-	partitioner.adaptive.partitioning.enable = true
-	partitioner.availability.timeout.ms = 0
-	partitioner.class = null
-	partitioner.ignore.keys = false
-	receive.buffer.bytes = 32768
-	reconnect.backoff.max.ms = 1000
-	reconnect.backoff.ms = 50
-	request.timeout.ms = 30000
-	retries = 2147483647
-	retry.backoff.ms = 100
-	sasl.client.callback.handler.class = null
-	sasl.jaas.config = null
-	sasl.kerberos.kinit.cmd = /usr/bin/kinit
-	sasl.kerberos.min.time.before.relogin = 60000
-	sasl.kerberos.service.name = null
-	sasl.kerberos.ticket.renew.jitter = 0.05
-	sasl.kerberos.ticket.renew.window.factor = 0.8
-	sasl.login.callback.handler.class = null
-	sasl.login.class = null
-	sasl.login.connect.timeout.ms = null
-	sasl.login.read.timeout.ms = null
-	sasl.login.refresh.buffer.seconds = 300
-	sasl.login.refresh.min.period.seconds = 60
-	sasl.login.refresh.window.factor = 0.8
-	sasl.login.refresh.window.jitter = 0.05
-	sasl.login.retry.backoff.max.ms = 10000
-	sasl.login.retry.backoff.ms = 100
-	sasl.mechanism = GSSAPI
-	sasl.oauthbearer.clock.skew.seconds = 30
-	sasl.oauthbearer.expected.audience = null
-	sasl.oauthbearer.expected.issuer = null
-	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
-	sasl.oauthbearer.jwks.endpoint.url = null
-	sasl.oauthbearer.scope.claim.name = scope
-	sasl.oauthbearer.sub.claim.name = sub
-	sasl.oauthbearer.token.endpoint.url = null
-	security.protocol = PLAINTEXT
-	security.providers = null
-	send.buffer.bytes = 131072
-	socket.connection.setup.timeout.max.ms = 30000
-	socket.connection.setup.timeout.ms = 10000
-	ssl.cipher.suites = null
-	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
-	ssl.endpoint.identification.algorithm = https
-	ssl.engine.factory.class = null
-	ssl.key.password = null
-	ssl.keymanager.algorithm = SunX509
-	ssl.keystore.certificate.chain = null
-	ssl.keystore.key = null
-	ssl.keystore.location = null
-	ssl.keystore.password = null
-	ssl.keystore.type = JKS
-	ssl.protocol = TLSv1.3
-	ssl.provider = null
-	ssl.secure.random.implementation = null
-	ssl.trustmanager.algorithm = PKIX
-	ssl.truststore.certificates = null
-	ssl.truststore.location = null
-	ssl.truststore.password = null
-	ssl.truststore.type = JKS
-	transaction.timeout.ms = 60000
-	transactional.id = null
-	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
-
-2025-10-05T13:23:45.655+05:30  INFO 11428 --- [nio-8081-exec-4] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-1] Instantiated an idempotent producer.
-2025-10-05T13:23:45.665+05:30  INFO 11428 --- [nio-8081-exec-4] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
-2025-10-05T13:23:45.665+05:30  INFO 11428 --- [nio-8081-exec-4] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
-2025-10-05T13:23:45.665+05:30  INFO 11428 --- [nio-8081-exec-4] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1759650825665
-2025-10-05T13:23:45.670+05:30  INFO 11428 --- [ad | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Cluster ID: XefKWn9YTzGZ7ro6pEc56g
-2025-10-05T13:23:45.670+05:30  INFO 11428 --- [ad | producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=producer-1] ProducerId set to 1007 with epoch 0
-Message sent successfully
-Consumed shipment event: Shipment deleted: ID=10
-Hibernate: select s1_0.shipment_id,s1_0.route_id,s1_0.vendor_id,s1_0.created_at,s1_0.destination,s1_0.estimated_delivery,s1_0.origin,s1_0.shipment_code,s1_0.status,s1_0.updated_at from shipment s1_0
-Hibernate: select r1_0.route_id,r1_0.cost,r1_0.created_at,r1_0.destination_port,r1_0.distance,r1_0.duration,r1_0.origin_port,r1_0.status,r1_0.transportation_mode from route r1_0 where r1_0.route_id=?
+Hibernate: select s1_0.shipment_id,ar1_0.route_id,ar1_0.cost,ar1_0.created_at,ar1_0.destination_port,ar1_0.distance,ar1_0.duration,ar1_0.origin_port,ar1_0.status,ar1_0.transportation_mode,av1_0.vendor_id,av1_0.contact_info,av1_0.created_at,av1_0.is_active,av1_0.name,av1_0.service_type,s1_0.created_at,s1_0.destination,s1_0.estimated_delivery,s1_0.origin,s1_0.shipment_code,s1_0.status,s1_0.updated_at from shipment s1_0 left join route ar1_0 on ar1_0.route_id=s1_0.route_id left join vendor av1_0 on av1_0.vendor_id=s1_0.vendor_id where s1_0.shipment_id=?
 Hibernate: select v1_0.vendor_id,v1_0.contact_info,v1_0.created_at,v1_0.is_active,v1_0.name,v1_0.service_type from vendor v1_0 where v1_0.vendor_id=?
+Hibernate: select c1_0.cargo_id,c1_0.created_at,c1_0.description,c1_0.shipment_id,c1_0.type,c1_0.value,c1_0.volume,c1_0.weight,c1_0.weight_unit from cargo c1_0
 Hibernate: select s1_0.shipment_id,s1_0.route_id,s1_0.vendor_id,s1_0.created_at,s1_0.destination,s1_0.estimated_delivery,s1_0.origin,s1_0.shipment_code,s1_0.status,s1_0.updated_at from shipment s1_0
+Hibernate: select v1_0.vendor_id,v1_0.contact_info,v1_0.created_at,v1_0.is_active,v1_0.name,v1_0.service_type from vendor v1_0
+Hibernate: select r1_0.route_id,r1_0.cost,r1_0.created_at,r1_0.destination_port,r1_0.distance,r1_0.duration,r1_0.origin_port,r1_0.status,r1_0.transportation_mode from route r1_0
+Hibernate: select d1_0.delivery_id,d1_0.actual_delivery_date,d1_0.created_at,d1_0.recipient,d1_0.shipment_id,d1_0.status from deliveries d1_0
 Hibernate: select r1_0.route_id,r1_0.cost,r1_0.created_at,r1_0.destination_port,r1_0.distance,r1_0.duration,r1_0.origin_port,r1_0.status,r1_0.transportation_mode from route r1_0 where r1_0.route_id=?
+Hibernate: select s1_0.shipment_id,ar1_0.route_id,ar1_0.cost,ar1_0.created_at,ar1_0.destination_port,ar1_0.distance,ar1_0.duration,ar1_0.origin_port,ar1_0.status,ar1_0.transportation_mode,av1_0.vendor_id,av1_0.contact_info,av1_0.created_at,av1_0.is_active,av1_0.name,av1_0.service_type,s1_0.created_at,s1_0.destination,s1_0.estimated_delivery,s1_0.origin,s1_0.shipment_code,s1_0.status,s1_0.updated_at from shipment s1_0 left join route ar1_0 on ar1_0.route_id=s1_0.route_id left join vendor av1_0 on av1_0.vendor_id=s1_0.vendor_id where s1_0.shipment_id=?
 Hibernate: select v1_0.vendor_id,v1_0.contact_info,v1_0.created_at,v1_0.is_active,v1_0.name,v1_0.service_type from vendor v1_0 where v1_0.vendor_id=?
-2025-10-05T13:24:15.254+05:30  INFO 11428 --- [essageBroker-11] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 32, active threads = 0, queued tasks = 0, completed tasks = 39], outboundChannel[pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 4], sockJsScheduler[pool size = 16, active threads = 1, queued tasks = 2, completed tasks = 13]
+Hibernate: select s1_0.shipment_id,ar1_0.route_id,ar1_0.cost,ar1_0.created_at,ar1_0.destination_port,ar1_0.distance,ar1_0.duration,ar1_0.origin_port,ar1_0.status,ar1_0.transportation_mode,av1_0.vendor_id,av1_0.contact_info,av1_0.created_at,av1_0.is_active,av1_0.name,av1_0.service_type,s1_0.created_at,s1_0.destination,s1_0.estimated_delivery,s1_0.origin,s1_0.shipment_code,s1_0.status,s1_0.updated_at from shipment s1_0 left join route ar1_0 on ar1_0.route_id=s1_0.route_id left join vendor av1_0 on av1_0.vendor_id=s1_0.vendor_id where s1_0.shipment_id=?

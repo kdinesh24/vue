@@ -5,6 +5,7 @@ const BASE_URL = 'http://localhost:8081/api'
 // Helper function for fetch requests
 const apiRequest = async <T>(url: string, options: RequestInit = {}): Promise<T> => {
   const response = await fetch(`${BASE_URL}${url}`, {
+    credentials: 'include',  // Important for session cookies
     headers: {
       'Content-Type': 'application/json',
       ...options.headers,
@@ -33,6 +34,29 @@ const apiRequest = async <T>(url: string, options: RequestInit = {}): Promise<T>
 }
 
 export const useApi = () => {
+  // Generic API methods
+  const get = async <T = any>(url: string): Promise<T> => {
+    return apiRequest<T>(url, { method: 'GET' })
+  }
+
+  const post = async <T = any>(url: string, data?: any): Promise<T> => {
+    return apiRequest<T>(url, {
+      method: 'POST',
+      body: data ? JSON.stringify(data) : undefined,
+    })
+  }
+
+  const put = async <T = any>(url: string, data: any): Promise<T> => {
+    return apiRequest<T>(url, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    })
+  }
+
+  const del = async <T = any>(url: string): Promise<T> => {
+    return apiRequest<T>(url, { method: 'DELETE' })
+  }
+
   // Shipments API
   const getShipments = async (): Promise<Shipment[]> => {
     try {
@@ -305,6 +329,11 @@ export const useApi = () => {
   }
 
   return {
+    // Generic methods
+    get,
+    post,
+    put,
+    del,
     // Shipments
     getShipments,
     getShipment,

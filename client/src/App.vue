@@ -1,5 +1,11 @@
 <template>
-  <SidebarProvider :default-open="true">
+  <!-- Login page without sidebar -->
+  <div v-if="isLoginPage">
+    <router-view />
+  </div>
+
+  <!-- Main app with sidebar -->
+  <SidebarProvider v-else :default-open="true">
     <AppSidebar />
     <SidebarInset>
       <!-- Top header bar -->
@@ -35,6 +41,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import AppSidebar from '@/components/AppSidebar.vue'
 import RealtimeNotifications from '@/components/RealtimeNotifications.vue'
@@ -50,6 +57,8 @@ import {
 } from '@/components/ui/breadcrumb'
 
 const route = useRoute()
+
+const isLoginPage = computed(() => route.path === '/login' || route.path === '/auth/callback')
 
 const getPageTitle = () => {
   const titles: Record<string, string> = {
