@@ -80,9 +80,9 @@ log/
 *.trace.db
 
 # Application properties with sensitive data
-# Uncomment if you want to ignore application.properties
-# application.properties
-# application-*.properties
+# Contains OAuth2 client secrets and database credentials
+application.properties
+application-*.properties
 application-local.properties
 application-dev.properties
 

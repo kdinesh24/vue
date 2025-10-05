@@ -1,0 +1,73 @@
+# Spring Boot Application Configuration Template
+# Copy this file to application.properties and fill in your values
+
+# ========================================
+# Database Configuration
+# ========================================
+spring.datasource.url=jdbc:postgresql://localhost:5432/taskdb
+spring.datasource.username=YOUR_DATABASE_USERNAME
+spring.datasource.password=YOUR_DATABASE_PASSWORD
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# ========================================
+# JPA/Hibernate Configuration
+# ========================================
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+# ========================================
+# Server Configuration
+# ========================================
+server.port=8081
+spring.application.name=supply-chain-system
+
+# ========================================
+# Kafka Configuration
+# ========================================
+spring.kafka.bootstrap-servers=localhost:9092
+spring.kafka.consumer.group-id=supply-chain-group
+spring.kafka.consumer.auto-offset-reset=earliest
+spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.StringSerializer
+
+# ========================================
+# Google OAuth2 Configuration
+# Get your credentials from: https://console.cloud.google.com/apis/credentials
+# ========================================
+spring.security.oauth2.client.registration.google.client-id=YOUR_GOOGLE_CLIENT_ID
+spring.security.oauth2.client.registration.google.client-secret=YOUR_GOOGLE_CLIENT_SECRET
+spring.security.oauth2.client.registration.google.scope=profile,email
+spring.security.oauth2.client.registration.google.redirect-uri=http://localhost:8081/login/oauth2/code/google
+
+# ========================================
+# Logging Configuration
+# ========================================
+logging.level.org.springframework.security=DEBUG
+logging.level.org.springframework.web=DEBUG
+logging.level.com.supplychain=DEBUG
+
+# ========================================
+# SETUP INSTRUCTIONS
+# ========================================
+# 1. Database Setup:
+#    - Install PostgreSQL
+#    - Create database: taskdb
+#    - Update username and password above
+#
+# 2. Kafka Setup:
+#    - Install and start Apache Kafka
+#    - Default: localhost:9092
+#
+# 3. Google OAuth2 Setup:
+#    - Go to: https://console.cloud.google.com/apis/credentials
+#    - Create OAuth 2.0 Client ID
+#    - Add authorized redirect URI: http://localhost:8081/login/oauth2/code/google
+#    - Copy Client ID and Client Secret
+#    - Paste them above
+#
+# 4. Save this file as: application.properties
+#    (This template file should NOT be committed to git)
