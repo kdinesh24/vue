@@ -4,9 +4,12 @@ import com.supplychain.model.Route;
 import com.supplychain.repository.RouteRepository;
 import com.supplychain.service.KafkaProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/routes")
@@ -43,28 +46,58 @@ public class RouteController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Route> updateRoute(@PathVariable Long id, @RequestBody Route routeDetails) {
-        Route route = routeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Route not found with id: " + id));
+    public ResponseEntity<?> updateRoute(@PathVariable Long id, @RequestBody Route routeDetails) {
+        try {
+            Route route = routeRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Route not found with id: " + id));
 
-        route.setOriginPort(routeDetails.getOriginPort());
-        route.setDestinationPort(routeDetails.getDestinationPort());
-        route.setDuration(routeDetails.getDuration());
-        route.setStatus(routeDetails.getStatus());
+            // Update all fields
+            route.setOriginPort(routeDetails.getOriginPort());
+            route.setDestinationPort(routeDetails.getDestinationPort());
+            route.setDistance(routeDetails.getDistance());
+            route.setDuration(routeDetails.getDuration());
+            route.setTransportationMode(routeDetails.getTransportationMode());
+            route.setCost(routeDetails.getCost());
+            route.setStatus(routeDetails.getStatus());
 
-        final Route updatedRoute = routeRepository.save(route);
-        String message = "Route updated: ID=" + id + ", Status=" + updatedRoute.getStatus();
-        kafkaProducerService.sendMessage("route-events", message);
-        return ResponseEntity.ok(updatedRoute);
+            final Route updatedRoute = routeRepository.save(route);
+            String message = "Route updated: ID=" + id + ", From=" + updatedRoute.getOriginPort() + " to " + updatedRoute.getDestinationPort();
+            kafkaProducerService.sendMessage("route-events", message);
+            return ResponseEntity.ok(updatedRoute);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error updating route: " + e.getMessage());
+        }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteRoute(@PathVariable Long id) {
-        Route route = routeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Route not found with id: " + id));
-        routeRepository.delete(route);
-        String message = "Route deleted: ID=" + id;
-        kafkaProducerService.sendMessage("route-events", message);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Map<String, Object>> deleteRoute(@PathVariable Long id) {
+        try {
+            if (!routeRepository.existsById(id)) {
+                Map<String, Object> errorResponse = new HashMap<>();
+                errorResponse.put("success", false);
+                errorResponse.put("message", "Route not found with ID: " + id);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+            }
+
+            routeRepository.deleteById(id);
+
+            // Publish to Kafka
+            String message = "Route deleted: ID=" + id;
+            kafkaProducerService.sendMessage("route-events", message);
+
+            // Return success response
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "Route deleted successfully");
+            response.put("routeId", id);
+            
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("success", false);
+            errorResponse.put("message", "Error deleting route: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
     }
 }

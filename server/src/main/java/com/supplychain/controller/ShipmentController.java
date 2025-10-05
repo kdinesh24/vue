@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -111,7 +113,8 @@ public class ShipmentController {
                     if (!deliveryExists) {
                         Delivery delivery = new Delivery();
                         delivery.setShipment(updatedShipment);
-                        delivery.setActualDeliveryDate(updatedShipment.getEstimatedDelivery());
+                        // Convert LocalDate to LocalDateTime (start of day)
+                        delivery.setActualDeliveryDate(updatedShipment.getEstimatedDelivery().atStartOfDay());
                         delivery.setRecipient("Customer at " + updatedShipment.getDestination());
                         deliveryRepository.save(delivery);
                     }
@@ -137,23 +140,46 @@ public class ShipmentController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteShipment(@PathVariable Long id) {
+    public ResponseEntity<Map<String, Object>> deleteShipment(@PathVariable Long id) {
         try {
-            Optional<Shipment> shipment = shipmentRepository.findById(id);
-            if (shipment.isPresent()) {
-                shipmentRepository.delete(shipment.get());
-
-                // Publish Kafka event
-                String message = "Shipment deleted: ID=" + id;
-                kafkaProducerService.sendMessage("shipment-events", message);
-
-                return ResponseEntity.noContent().build();
-            } else {
-                return ResponseEntity.notFound().build();
+            if (!shipmentRepository.existsById(id)) {
+                Map<String, Object> errorResponse = new HashMap<>();
+                errorResponse.put("success", false);
+                errorResponse.put("message", "Shipment not found with ID: " + id);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
             }
+
+            // Delete associated deliveries first (to avoid foreign key constraint violation)
+            List<Delivery> associatedDeliveries = deliveryRepository.findAll().stream()
+                .filter(d -> d.getShipment() != null && d.getShipment().getShipmentId().equals(id))
+                .toList();
+            
+            if (!associatedDeliveries.isEmpty()) {
+                deliveryRepository.deleteAll(associatedDeliveries);
+                System.out.println("Deleted " + associatedDeliveries.size() + " associated delivery records");
+            }
+
+            // Now delete the shipment (cargo will be cascaded automatically)
+            shipmentRepository.deleteById(id);
+
+            // Publish Kafka event
+            String message = "Shipment deleted: ID=" + id;
+            kafkaProducerService.sendMessage("shipment-events", message);
+
+            // Return success response
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "Shipment deleted successfully");
+            response.put("shipmentId", id);
+            
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             System.err.println("Error deleting shipment: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            e.printStackTrace();
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("success", false);
+            errorResponse.put("message", "Error deleting shipment: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }
 }

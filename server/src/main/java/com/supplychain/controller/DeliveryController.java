@@ -4,10 +4,13 @@ import com.supplychain.model.Delivery;
 import com.supplychain.repository.DeliveryRepository;
 import com.supplychain.service.KafkaProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -78,12 +81,33 @@ public class DeliveryController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteDelivery(@PathVariable Long id) {
-        Delivery delivery = deliveryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Delivery not found with id: " + id));
-        deliveryRepository.delete(delivery);
-        String message = "Delivery deleted: ID=" + id;
-        kafkaProducerService.sendMessage("delivery-events", message);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Map<String, Object>> deleteDelivery(@PathVariable Long id) {
+        try {
+            if (!deliveryRepository.existsById(id)) {
+                Map<String, Object> errorResponse = new HashMap<>();
+                errorResponse.put("success", false);
+                errorResponse.put("message", "Delivery not found with ID: " + id);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+            }
+
+            deliveryRepository.deleteById(id);
+
+            // Publish to Kafka
+            String message = "Delivery deleted: ID=" + id;
+            kafkaProducerService.sendMessage("delivery-events", message);
+
+            // Return success response
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "Delivery deleted successfully");
+            response.put("deliveryId", id);
+            
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("success", false);
+            errorResponse.put("message", "Error deleting delivery: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
     }
 }

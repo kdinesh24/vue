@@ -105,10 +105,10 @@
                       {{ item.type }}
                     </Badge>
                   </TableCell>
-                  <TableCell>{{ formatNumber(item.weight) }}</TableCell>
+                  <TableCell>{{ item.weight ? formatNumber(item.weight) : 'N/A' }}</TableCell>
                   <TableCell>${{ formatNumber(item.value) }}</TableCell>
-                  <TableCell>{{ item.origin }}</TableCell>
-                  <TableCell>{{ item.destination }}</TableCell>
+                  <TableCell>{{ item.shipment?.origin || 'N/A' }}</TableCell>
+                  <TableCell>{{ item.shipment?.destination || 'N/A' }}</TableCell>
                   <TableCell>
                     <span v-if="item.shipment" class="text-blue-600">
                       #{{ item.shipment.shipmentId }}
@@ -136,7 +136,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -205,12 +205,11 @@ const formatNumber = (num: number) => {
 }
 
 const editCargo = (item: Cargo) => {
-  // Navigate to edit cargo page (when implemented)
-  console.log('Edit cargo:', item)
+  router.push(`/cargo/${item.cargoId}/edit`)
 }
 
 const deleteCargo = async (item: Cargo) => {
-  if (!confirm(`Are you sure you want to delete cargo "${item.type}" (ID: ${item.cargoId})?`)) {
+  if (!item.cargoId || !confirm(`Are you sure you want to delete cargo "${item.type}" (ID: ${item.cargoId})?`)) {
     return
   }
   
@@ -225,5 +224,12 @@ const deleteCargo = async (item: Cargo) => {
 
 onMounted(() => {
   loadCargo()
+  
+  // Listen for real-time updates from WebSocket
+  window.addEventListener('cargo-updated', loadCargo)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('cargo-updated', loadCargo)
 })
 </script>

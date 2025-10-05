@@ -19,13 +19,20 @@ export interface Cargo {
   value: number;
   weight?: number;
   weightUnit?: string;
+  volume?: number;
+  createdAt?: string;
 }
 
 export interface Vendor {
   vendorId?: number;
   name: string;
   contactInfo: string;
+  contactEmail?: string;
+  contactPhone?: string;
+  address?: string;
   serviceType: string;
+  isActive?: boolean;
+  createdAt?: string;
 }
 
 export interface Route {

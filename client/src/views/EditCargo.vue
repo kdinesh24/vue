@@ -7,16 +7,21 @@
           Back to Cargo
         </Button>
         <div>
-          <h1 class="text-3xl font-bold text-gray-900">Create New Cargo</h1>
-          <p class="mt-2 text-gray-600">Add new cargo to your inventory</p>
+          <h1 class="text-3xl font-bold text-gray-900">Edit Cargo</h1>
+          <p class="mt-2 text-gray-600">Update cargo information</p>
         </div>
       </div>
 
-      <Card class="border-0 shadow-sm">
+      <div v-if="isLoading" class="flex items-center justify-center h-64">
+        <Loader2 class="h-8 w-8 animate-spin" />
+        <span class="ml-2">Loading cargo details...</span>
+      </div>
+
+      <Card v-else-if="!loadError" class="border-0 shadow-sm">
         <CardHeader class="pb-4">
           <CardTitle class="text-xl font-semibold">Cargo Details</CardTitle>
           <CardDescription>
-            Enter the cargo information below
+            Update the cargo information below
           </CardDescription>
         </CardHeader>
         <CardContent class="pt-2">
@@ -100,12 +105,22 @@
                 Cancel
               </Button>
               <Button type="submit" :disabled="isSubmitting">
-                <Plus v-if="!isSubmitting" class="mr-2 h-4 w-4" />
+                <Save v-if="!isSubmitting" class="mr-2 h-4 w-4" />
                 <Loader2 v-else class="mr-2 h-4 w-4 animate-spin" />
-                {{ isSubmitting ? 'Creating...' : 'Create Cargo' }}
+                {{ isSubmitting ? 'Updating...' : 'Update Cargo' }}
               </Button>
             </div>
           </form>
+        </CardContent>
+      </Card>
+
+      <Card v-else class="border-0 shadow-sm">
+        <CardContent class="text-center py-12">
+          <AlertCircle class="h-12 w-12 text-red-500 mx-auto mb-4" />
+          <p class="text-gray-600 mb-4">{{ loadError }}</p>
+          <Button @click="$router.push('/cargo')" variant="outline">
+            Back to Cargo List
+          </Button>
         </CardContent>
       </Card>
     </div>
@@ -114,27 +129,57 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { ArrowLeft, Plus, Loader2 } from 'lucide-vue-next'
+import { ArrowLeft, Save, Loader2, AlertCircle } from 'lucide-vue-next'
 import { useApi } from '@/composables/useApi'
 import type { Shipment } from '@/types'
 
 const router = useRouter()
-const { createCargo, getShipments } = useApi()
+const route = useRoute()
+const { updateCargo, getCargoItem, getShipments } = useApi()
 
+const isLoading = ref(true)
 const isSubmitting = ref(false)
+const loadError = ref<string | null>(null)
 const shipments = ref<Shipment[]>([])
+const cargoId = Number(route.params.id)
 
 const formData = reactive({
   type: '',
   weight: 0,
   value: 0,
+  volume: 0,
+  weightUnit: 'kg',
   description: '',
-  shipmentId: ''
+  shipmentId: '' as string | number
 })
+
+const loadCargo = async () => {
+  try {
+    const cargo = await getCargoItem(cargoId)
+    if (!cargo) {
+      loadError.value = 'Cargo not found'
+      return
+    }
+
+    // Populate form with existing data
+    formData.type = cargo.type || ''
+    formData.weight = cargo.weight || 0
+    formData.value = cargo.value || 0
+    formData.volume = cargo.volume || 0
+    formData.weightUnit = cargo.weightUnit || 'kg'
+    formData.description = cargo.description || ''
+    formData.shipmentId = cargo.shipment?.shipmentId || ''
+  } catch (error) {
+    console.error('Error loading cargo:', error)
+    loadError.value = 'Failed to load cargo details'
+  } finally {
+    isLoading.value = false
+  }
+}
 
 const loadShipments = async () => {
   try {
@@ -151,24 +196,24 @@ const handleSubmit = async () => {
       type: formData.type,
       weight: formData.weight,
       value: formData.value,
+      volume: formData.volume,
+      weightUnit: formData.weightUnit,
       description: formData.description || null,
-      volume: null,
-      weightUnit: 'kg',
       shipmentId: formData.shipmentId ? Number(formData.shipmentId) : null
     }
 
-    console.log('Sending cargo data:', cargoData) // Debug log
-    await createCargo(cargoData)
+    console.log('Updating cargo with data:', cargoData) // Debug log
+    await updateCargo(cargoId, cargoData)
     router.push('/cargo')
   } catch (error) {
-    console.error('Error creating cargo:', error)
-    alert('Failed to create cargo. Please check the console and try again.')
+    console.error('Error updating cargo:', error)
+    alert('Failed to update cargo. Please check the console and try again.')
   } finally {
     isSubmitting.value = false
   }
 }
 
-onMounted(() => {
-  loadShipments()
+onMounted(async () => {
+  await Promise.all([loadCargo(), loadShipments()])
 })
 </script>

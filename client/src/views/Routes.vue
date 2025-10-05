@@ -134,7 +134,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -212,12 +212,11 @@ const viewRoute = (route: RouteType) => {
 }
 
 const editRoute = (route: RouteType) => {
-  // Navigate to edit route page (when implemented)
-  console.log('Edit route:', route)
+  router.push(`/routes/${route.routeId}/edit`)
 }
 
 const deleteRoute = async (route: RouteType) => {
-  if (!confirm(`Are you sure you want to delete route "${route.originPort} → ${route.destinationPort}"?`)) {
+  if (!route.routeId || !confirm(`Are you sure you want to delete route "${route.originPort} → ${route.destinationPort}"?`)) {
     return
   }
   
@@ -232,5 +231,12 @@ const deleteRoute = async (route: RouteType) => {
 
 onMounted(() => {
   loadRoutes()
+  
+  // Listen for real-time updates from WebSocket
+  window.addEventListener('routes-updated', loadRoutes)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('routes-updated', loadRoutes)
 })
 </script>

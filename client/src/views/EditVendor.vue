@@ -7,16 +7,29 @@
           Back to Vendors
         </Button>
         <div>
-          <h1 class="text-3xl font-bold text-gray-900">Create New Vendor</h1>
-          <p class="mt-2 text-gray-600">Add a new vendor to your supply chain</p>
+          <h1 class="text-3xl font-bold text-gray-900">Edit Vendor</h1>
+          <p class="mt-2 text-gray-600">Update vendor information</p>
         </div>
       </div>
 
-      <Card class="border-0 shadow-sm">
+      <div v-if="isLoading" class="flex items-center justify-center h-64">
+        <Loader2 class="h-8 w-8 animate-spin" />
+        <span class="ml-2">Loading vendor...</span>
+      </div>
+
+      <div v-else-if="error" class="text-center py-8">
+        <AlertCircle class="h-12 w-12 text-red-500 mx-auto mb-4" />
+        <p class="text-gray-600">{{ error }}</p>
+        <Button @click="$router.push('/vendors')" class="mt-4" variant="outline">
+          Back to Vendors
+        </Button>
+      </div>
+
+      <Card v-else class="border-0 shadow-sm">
         <CardHeader class="pb-4">
           <CardTitle class="text-xl font-semibold">Vendor Information</CardTitle>
           <CardDescription>
-            Enter the vendor details below
+            Update the vendor details below
           </CardDescription>
         </CardHeader>
         <CardContent class="pt-2">
@@ -49,35 +62,26 @@
               </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="space-y-2">
-                <label class="text-sm font-medium">Contact Email</label>
-                <Input
-                  v-model="formData.contactEmail"
-                  type="email"
-                  placeholder="Enter contact email"
-                  required
-                />
-              </div>
-              
-              <div class="space-y-2">
-                <label class="text-sm font-medium">Contact Phone</label>
-                <Input
-                  v-model="formData.contactPhone"
-                  type="tel"
-                  placeholder="Enter contact phone"
-                  required
-                />
-              </div>
-            </div>
-
             <div class="space-y-2">
-              <label class="text-sm font-medium">Address</label>
+              <label class="text-sm font-medium">Contact Information</label>
               <Input
-                v-model="formData.address"
-                placeholder="Enter vendor address"
+                v-model="formData.contactInfo"
+                placeholder="Enter contact information (email, phone, address)"
                 required
               />
+              <p class="text-xs text-gray-500">Enter all contact details (email, phone, address)</p>
+            </div>
+
+            <div class="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                v-model="formData.isActive"
+                id="isActive"
+                class="h-4 w-4 rounded border-gray-300"
+              />
+              <label for="isActive" class="text-sm font-medium">
+                Active Vendor
+              </label>
             </div>
 
             <div class="flex justify-end space-x-4 pt-6">
@@ -85,9 +89,9 @@
                 Cancel
               </Button>
               <Button type="submit" :disabled="isSubmitting">
-                <Plus v-if="!isSubmitting" class="mr-2 h-4 w-4" />
+                <Save v-if="!isSubmitting" class="mr-2 h-4 w-4" />
                 <Loader2 v-else class="mr-2 h-4 w-4 animate-spin" />
-                {{ isSubmitting ? 'Creating...' : 'Create Vendor' }}
+                {{ isSubmitting ? 'Updating...' : 'Update Vendor' }}
               </Button>
             </div>
           </form>
@@ -98,46 +102,68 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, reactive, onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { ArrowLeft, Plus, Loader2 } from 'lucide-vue-next'
+import { ArrowLeft, Save, Loader2, AlertCircle } from 'lucide-vue-next'
 import { useApi } from '@/composables/useApi'
 
 const router = useRouter()
-const { createVendor } = useApi()
+const route = useRoute()
+const { getVendor, updateVendor } = useApi()
 
+const vendorId = Number(route.params.id)
+const isLoading = ref(true)
 const isSubmitting = ref(false)
+const error = ref<string | null>(null)
 
 const formData = reactive({
   name: '',
   serviceType: '',
-  contactEmail: '',
-  contactPhone: '',
-  address: ''
+  contactInfo: '',
+  isActive: true
 })
+
+const loadVendor = async () => {
+  isLoading.value = true
+  error.value = null
+  try {
+    const vendor = await getVendor(vendorId)
+    formData.name = vendor.name
+    formData.serviceType = vendor.serviceType
+    formData.contactInfo = vendor.contactInfo
+    formData.isActive = vendor.isActive !== false
+  } catch (err) {
+    error.value = 'Failed to load vendor. Please try again.'
+    console.error('Error loading vendor:', err)
+  } finally {
+    isLoading.value = false
+  }
+}
 
 const handleSubmit = async () => {
   isSubmitting.value = true
   try {
-    // Combine contact information into a single field
-    const contactInfo = `Email: ${formData.contactEmail}, Phone: ${formData.contactPhone}, Address: ${formData.address}`
-    
     const vendorData = {
       name: formData.name,
       serviceType: formData.serviceType,
-      contactInfo: contactInfo
+      contactInfo: formData.contactInfo,
+      isActive: formData.isActive
     }
     
-    await createVendor(vendorData)
+    await updateVendor(vendorId, vendorData)
     router.push('/vendors')
   } catch (error) {
-    console.error('Error creating vendor:', error)
-    alert('Failed to create vendor. Please try again.')
+    console.error('Error updating vendor:', error)
+    alert('Failed to update vendor. Please try again.')
   } finally {
     isSubmitting.value = false
   }
 }
+
+onMounted(() => {
+  loadVendor()
+})
 </script>

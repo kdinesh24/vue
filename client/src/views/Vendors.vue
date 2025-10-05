@@ -133,7 +133,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -198,11 +198,15 @@ const getServiceTypeBadgeVariant = (serviceType: string) => {
 }
 
 const editVendor = (vendor: Vendor) => {
-  // Navigate to edit vendor page (when implemented)
-  console.log('Edit vendor:', vendor)
+  router.push(`/vendors/${vendor.vendorId}/edit`)
 }
 
 const deleteVendor = async (vendor: Vendor) => {
+  if (!vendor.vendorId) {
+    alert('Invalid vendor ID')
+    return
+  }
+  
   if (!confirm(`Are you sure you want to delete vendor "${vendor.name}"?`)) {
     return
   }
@@ -218,5 +222,12 @@ const deleteVendor = async (vendor: Vendor) => {
 
 onMounted(() => {
   loadVendors()
+  
+  // Listen for real-time updates from WebSocket
+  window.addEventListener('vendors-updated', loadVendors)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('vendors-updated', loadVendors)
 })
 </script>

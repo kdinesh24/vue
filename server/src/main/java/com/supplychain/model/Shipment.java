@@ -11,6 +11,7 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -33,30 +34,26 @@ public class Shipment {
     private String destination;
 
     @NotBlank(message = "Status is required")
-    @Pattern(regexp = "Created|In Transit|Delivered|Delayed", message = "Status must be Created, In Transit, Delivered, or Delayed")
-    @Column(name = "status", nullable = false, length = 20)  // Default 'Created' via field init
+    @Column(name = "status", nullable = false, length = 50)  // Increased length for longer status names
     private String status = "Created";  // Java default for insert
 
-    @Column(name = "estimated_delivery", nullable = true)  // TIMESTAMP, nullable allowed
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDateTime estimatedDelivery;  // Using LocalDateTime for TIMESTAMP
+    @Column(name = "estimated_delivery", nullable = true)  // DATE type
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate estimatedDelivery;  // Using LocalDate for DATE
 
-    // FK to Route (NOT NULL)
-    @NotNull(message = "Route is required")
+    // FK to Route (NULLABLE - Optional assignment)
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "route_id", nullable = false)
+    @JoinColumn(name = "route_id", nullable = true)
     private Route assignedRoute;
 
-    // FK to Vendor (NOT NULL)
-    @NotNull(message = "Vendor is required")
+    // FK to Vendor (NULLABLE - Optional assignment)
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "vendor_id", nullable = false)
+    @JoinColumn(name = "vendor_id", nullable = true)
     private Vendor assignedVendor;
 
-    @NotBlank(message = "Shipment code is required and unique") 
-    @Size(min = 1, max = 20, message = "Shipment code must be 1-20 characters")
-    @Column(name = "shipment_code", unique = true, length = 20, nullable = false)  // UNIQUE and NOT NULL
-    private String shipmentCode;  // Added from specs
+    @Size(max = 20, message = "Shipment code cannot exceed 20 characters")
+    @Column(name = "shipment_code", unique = true, length = 20, nullable = true)  // UNIQUE but NULLABLE
+    private String shipmentCode;  // Optional tracking code
 
     @OneToMany(mappedBy = "shipment", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @com.fasterxml.jackson.annotation.JsonIgnore

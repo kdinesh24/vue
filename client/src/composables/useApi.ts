@@ -16,6 +16,19 @@ const apiRequest = async <T>(url: string, options: RequestInit = {}): Promise<T>
     throw new Error(`HTTP error! status: ${response.status}`)
   }
 
+  // Handle empty responses (204 No Content or empty body)
+  const contentType = response.headers.get('content-type')
+  const contentLength = response.headers.get('content-length')
+  
+  if (contentLength === '0' || response.status === 204) {
+    return {} as T
+  }
+  
+  if (contentType && contentType.includes('application/json')) {
+    const text = await response.text()
+    return text ? JSON.parse(text) : {} as T
+  }
+  
   return response.json()
 }
 
@@ -91,6 +104,16 @@ export const useApi = () => {
     }
   }
   
+  const getVendor = async (id: number): Promise<Vendor | null> => {
+    try {
+      const data = await apiRequest<Vendor>(`/vendors/${id}`)
+      return data
+    } catch (error) {
+      console.error('Error fetching vendor:', error)
+      return null
+    }
+  }
+  
   const createVendor = async (vendor: Omit<Vendor, 'vendorId'>): Promise<Vendor> => {
     try {
       const data = await apiRequest<Vendor>('/vendors', {
@@ -100,6 +123,30 @@ export const useApi = () => {
       return data
     } catch (error) {
       console.error('Error creating vendor:', error)
+      throw error
+    }
+  }
+  
+  const updateVendor = async (id: number, vendor: Omit<Vendor, 'vendorId'>): Promise<Vendor> => {
+    try {
+      const data = await apiRequest<Vendor>(`/vendors/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(vendor)
+      })
+      return data
+    } catch (error) {
+      console.error('Error updating vendor:', error)
+      throw error
+    }
+  }
+  
+  const deleteVendor = async (id: number): Promise<void> => {
+    try {
+      await apiRequest(`/vendors/${id}`, { 
+        method: 'DELETE' 
+      })
+    } catch (error) {
+      console.error('Error deleting vendor:', error)
       throw error
     }
   }
@@ -266,7 +313,10 @@ export const useApi = () => {
     deleteShipment,
     // Vendors
     getVendors,
+    getVendor,
     createVendor,
+    updateVendor,
+    deleteVendor,
     // Routes
     getRoutes,
     getRoute,

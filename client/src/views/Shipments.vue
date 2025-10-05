@@ -188,6 +188,9 @@ onMounted(() => {
   
   // Listen for shipment updates from other components
   window.addEventListener('shipment-updated', refresh)
+  
+  // Listen for real-time updates from WebSocket
+  window.addEventListener('shipments-updated', refresh)
 })
 
 // Refresh data when component is activated (navigating back to this page)
@@ -198,5 +201,6 @@ onActivated(() => {
 // Cleanup event listeners
 onUnmounted(() => {
   window.removeEventListener('shipment-updated', refresh)
+  window.removeEventListener('shipments-updated', refresh)
 })
 </script>

@@ -164,19 +164,17 @@ const handleSubmit = async () => {
       estimatedDelivery: formData.estimatedDelivery
     }
 
-    // Add assigned route if selected
+    // Add assigned route ID if selected (send only ID, not full object)
     if (formData.assignedRouteId) {
-      const selectedRoute = routes.value.find(r => r.routeId === Number(formData.assignedRouteId))
-      if (selectedRoute) {
-        shipmentData.assignedRoute = selectedRoute
+      shipmentData.assignedRoute = {
+        routeId: Number(formData.assignedRouteId)
       }
     }
 
-    // Add assigned vendor if selected
+    // Add assigned vendor ID if selected (send only ID, not full object)
     if (formData.assignedVendorId) {
-      const selectedVendor = vendors.value.find(v => v.vendorId === Number(formData.assignedVendorId))
-      if (selectedVendor) {
-        shipmentData.assignedVendor = selectedVendor
+      shipmentData.assignedVendor = {
+        vendorId: Number(formData.assignedVendorId)
       }
     }
 

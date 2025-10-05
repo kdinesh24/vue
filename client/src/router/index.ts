@@ -28,6 +28,10 @@ const router = createRouter({
       component: () => import('../views/CreateVendor.vue'),
     },
     {
+      path: '/vendors/:id/edit',
+      component: () => import('../views/EditVendor.vue'),
+    },
+    {
       path: '/cargo',
       component: () => import('../views/Cargo.vue'),
     },
@@ -36,12 +40,20 @@ const router = createRouter({
       component: () => import('../views/CreateCargo.vue'),
     },
     {
+      path: '/cargo/:id/edit',
+      component: () => import('../views/EditCargo.vue'),
+    },
+    {
       path: '/routes',
       component: () => import('../views/Routes.vue'),
     },
     {
       path: '/routes/create',
       component: () => import('../views/CreateRoute.vue'),
+    },
+    {
+      path: '/routes/:id/edit',
+      component: () => import('../views/EditRoute.vue'),
     },
     {
       path: '/routes/:id',

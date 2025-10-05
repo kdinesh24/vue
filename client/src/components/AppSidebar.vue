@@ -1,205 +1,86 @@
 <script setup lang="ts">
-import type { SidebarProps } from '@/components/ui/sidebar'
-
-import { GalleryVerticalEnd } from "lucide-vue-next"
+import { useRoute } from 'vue-router'
+import { 
+  LayoutDashboard, 
+  Package, 
+  Users, 
+  Route as RouteIcon, 
+  Truck, 
+  CheckCircle
+} from 'lucide-vue-next'
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
-
 } from '@/components/ui/sidebar'
 
-const props = withDefaults(defineProps<SidebarProps>(), {
-  variant: "floating",
-})
+const route = useRoute()
 
-// This is sample data.
-const data = {
-  navMain: [
-    {
-      title: "Getting Started",
-      url: "#",
-      items: [
-        {
-          title: "Installation",
-          url: "#",
-        },
-        {
-          title: "Project Structure",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Building Your Application",
-      url: "#",
-      items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "API Reference",
-      url: "#",
-      items: [
-        {
-          title: "Components",
-          url: "#",
-        },
-        {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Architecture",
-      url: "#",
-      items: [
-        {
-          title: "Accessibility",
-          url: "#",
-        },
-        {
-          title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Community",
-      url: "#",
-      items: [
-        {
-          title: "Contribution Guide",
-          url: "#",
-        },
-      ],
-    },
-  ],
-}
+const navigationItems = [
+  { title: 'Dashboard', url: '/', icon: LayoutDashboard },
+  { title: 'Shipments', url: '/shipments', icon: Package },
+  { title: 'Vendors', url: '/vendors', icon: Users },
+  { title: 'Cargo', url: '/cargo', icon: Truck },
+  { title: 'Routes', url: '/routes', icon: RouteIcon },
+  { title: 'Deliveries', url: '/deliveries', icon: CheckCircle },
+]
+
+const isActive = (url: string) => (url === '/' ? route.path === '/' : route.path.startsWith(url))
 </script>
 
 <template>
-  <Sidebar v-bind="props">
+  <Sidebar variant="inset" collapsible="icon">
     <SidebarHeader>
       <SidebarMenu>
         <SidebarMenuItem>
           <SidebarMenuButton size="lg" as-child>
-            <a href="#">
+            <router-link to="/">
               <div class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                <GalleryVerticalEnd class="size-4" />
+                <Package class="size-4" />
               </div>
-              <div class="flex flex-col gap-0.5 leading-none">
-                <span class="font-medium">Documentation</span>
-                <span class="">v1.0.0</span>
+              <div class="grid flex-1 text-left text-sm leading-tight">
+                <span class="truncate font-semibold">LifeStyle</span>
+                <span class="truncate text-xs">Supply Chain</span>
               </div>
-            </a>
+            </router-link>
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarMenu>
     </SidebarHeader>
+    
     <SidebarContent>
       <SidebarGroup>
-        <SidebarMenu class="gap-2">
-          <SidebarMenuItem v-for="item in data.navMain" :key="item.title">
-            <SidebarMenuButton as-child>
-              <a :href="item.url" class="font-medium">
-                {{ item.title }}
-              </a>
-            </SidebarMenuButton>
-            <SidebarMenuSub v-if="item.items.length" class="ml-0 border-l-0 px-1.5">
-              <SidebarMenuSubItem v-for="childItem in item.items" :key="childItem.title">
-                <SidebarMenuSubButton as-child :is-active="childItem.isActive">
-                  <a :href="childItem.url">{{ childItem.title }}</a>
-                </SidebarMenuSubButton>
-              </SidebarMenuSubItem>
-            </SidebarMenuSub>
-          </SidebarMenuItem>
-        </SidebarMenu>
+        <SidebarGroupLabel>Platform</SidebarGroupLabel>
+        <SidebarGroupContent>
+          <SidebarMenu>
+            <SidebarMenuItem v-for="item in navigationItems" :key="item.title">
+              <SidebarMenuButton 
+                :as-child="true" 
+                :is-active="isActive(item.url)"
+                :tooltip="item.title"
+              >
+                <router-link :to="item.url">
+                  <component :is="item.icon" />
+                  <span>{{ item.title }}</span>
+                </router-link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarGroupContent>
       </SidebarGroup>
     </SidebarContent>
+
+    <SidebarFooter>
+      <div class="px-3 py-4 text-xs text-muted-foreground">
+        © {{ new Date().getFullYear() }} LifeStyle
+      </div>
+    </SidebarFooter>
   </Sidebar>
 </template>
